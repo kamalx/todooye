@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:todooye/widgets/tasklist.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -55,6 +55,7 @@ class TasksScreen extends StatelessWidget {
               ],
             ),
           ),
+          // the actual list
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -64,6 +65,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
+              child: TaskList(),
             ),
           ),
         ],
