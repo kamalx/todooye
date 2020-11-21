@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AddTask extends StatelessWidget {
+  final Function handleTask;
+  AddTask(this.handleTask);
+
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle;
+
     return Container(
       color: Color(0xff737672),
       child: Container(
@@ -32,6 +37,9 @@ class AddTask extends StatelessWidget {
                 autofocus: true,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 24.0),
+                onChanged: (newText) {
+                  newTaskTitle = newText;
+                },
               ),
               FlatButton(
                 color: Colors.lightBlueAccent,
@@ -42,7 +50,7 @@ class AddTask extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
-                  print('task added');
+                  handleTask(newTaskTitle);
                 },
               )
             ],

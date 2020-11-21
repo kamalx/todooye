@@ -26,7 +26,13 @@ class _TasksScreenState extends State<TasksScreen> {
             context: context,
             builder: (BuildContext context) => SingleChildScrollView(
               child: Container(
-                child: AddTask(),
+                child: AddTask((newTaskTitle) {
+                  // print('TASKSCREEN: $newTaskTitle');
+                  setState(() {
+                    tasks.add(Task(name: newTaskTitle));
+                  });
+                  Navigator.pop(context);
+                }),
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
               ),
