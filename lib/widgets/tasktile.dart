@@ -26,6 +26,7 @@ class _TaskTileState extends State<TaskTile> {
       title: Text(
         widget.title,
         style: TextStyle(
+          fontWeight: FontWeight.w700,
           decoration: isChecked ? TextDecoration.lineThrough : null,
         ),
       ),
