@@ -20,7 +20,7 @@ class AddTask extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(
-                  'Add Task',
+                  'New Task',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.lightBlueAccent,
