@@ -1,59 +1,34 @@
 import 'package:flutter/material.dart';
 
-class TaskTile extends StatefulWidget {
+class TaskTile extends StatelessWidget {
   final String title;
+  final bool isChecked;
 
-  TaskTile({
-    @required this.title,
-  });
-
-  @override
-  _TaskTileState createState() => _TaskTileState();
-}
-
-class _TaskTileState extends State<TaskTile> {
-  bool isChecked = true;
+  TaskTile({@required this.title, this.isChecked = false});
 
   void checkboxCallback(bool checkboxState) {
-    setState(() {
-      isChecked = checkboxState;
-    });
+    // setState(() {
+    //   isChecked = checkboxState;
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        widget.title,
+        title,
         style: TextStyle(
           fontWeight: FontWeight.w700,
           decoration: isChecked ? TextDecoration.lineThrough : null,
         ),
       ),
-      trailing: TaskCheckbox(
-        checkboxState: isChecked,
-        toggleCheckboxState: checkboxCallback,
+      trailing: Checkbox(
+        value: isChecked,
+        activeColor: Colors.lightBlueAccent,
+        // we have to manage the state of a checkbox
+        // unlike what we're used to in the web world
+        onChanged: checkboxCallback,
       ),
-    );
-  }
-}
-
-class TaskCheckbox extends StatelessWidget {
-  final bool checkboxState;
-  final Function toggleCheckboxState;
-  TaskCheckbox({
-    this.checkboxState,
-    this.toggleCheckboxState,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-      value: checkboxState,
-      activeColor: Colors.lightBlueAccent,
-      // we have to manage the state of a checkbox
-      // unlike what we're used to in the web world
-      onChanged: toggleCheckboxState,
     );
   }
 }
