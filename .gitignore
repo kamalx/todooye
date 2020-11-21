@@ -42,3 +42,4 @@ app.*.map.json
 
 # other ignores
 #
+flutter_??.png
