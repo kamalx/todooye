@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todooye/screens/add_task_screen.dart';
+import 'package:todooye/screens/add_task.dart';
 import 'package:todooye/widgets/tasklist.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -13,7 +13,13 @@ class TasksScreen extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (BuildContext context) => AddTask(),
+            builder: (BuildContext context) => SingleChildScrollView(
+              child: Container(
+                child: AddTask(),
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+              ),
+            ),
             isScrollControlled: true,
           );
         },
